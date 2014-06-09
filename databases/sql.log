@@ -1,0 +1,266 @@
+timestamp: 2014-05-31T14:56:32.485133
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    password CHAR(512),
+    registration_key CHAR(512),
+    reset_password_key CHAR(512),
+    registration_id CHAR(512)
+);
+success!
+timestamp: 2014-05-31T14:56:32.525345
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2014-05-31T14:56:32.535902
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE
+);
+success!
+timestamp: 2014-05-31T14:56:32.595709
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2014-05-31T14:56:32.609754
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2014-05-31T14:56:32.628165
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    created_on TIMESTAMP,
+    service CHAR(512),
+    ticket CHAR(512),
+    renew CHAR(1)
+);
+success!
+timestamp: 2014-05-31T14:56:32.646272
+CREATE TABLE t_db_sigeo(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    f_testas CHAR(512),
+    f_jebas CHAR(512),
+    f_pintos CHAR(512),
+    is_active CHAR(1),
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    modified_on TIMESTAMP,
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE
+);
+success!
+timestamp: 2014-05-31T14:56:32.663748
+CREATE TABLE t_db_sigeo_archive(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    f_testas CHAR(512),
+    f_jebas CHAR(512),
+    f_pintos CHAR(512),
+    is_active CHAR(1),
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    modified_on TIMESTAMP,
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    current_record INTEGER REFERENCES t_db_sigeo (id) ON DELETE CASCADE
+);
+success!
+timestamp: 2014-06-08T14:40:17.225699
+ALTER TABLE t_db_sigeo ADD f_assunto CHAR(512);
+timestamp: 2014-06-08T14:40:17.333013
+ALTER TABLE t_db_sigeo ADD f_local CHAR(512);
+timestamp: 2014-06-08T14:40:17.350953
+ALTER TABLE t_db_sigeo ADD f_tipo CHAR(512);
+timestamp: 2014-06-08T14:40:17.379648
+ALTER TABLE t_db_sigeo ADD f_descricao CHAR(512);
+success!
+timestamp: 2014-06-08T14:40:17.469697
+ALTER TABLE t_db_sigeo_archive ADD f_assunto CHAR(512);
+timestamp: 2014-06-08T14:40:17.515153
+ALTER TABLE t_db_sigeo_archive ADD f_local CHAR(512);
+timestamp: 2014-06-08T14:40:17.551889
+ALTER TABLE t_db_sigeo_archive ADD f_tipo CHAR(512);
+timestamp: 2014-06-08T14:40:17.594706
+ALTER TABLE t_db_sigeo_archive ADD f_descricao CHAR(512);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
