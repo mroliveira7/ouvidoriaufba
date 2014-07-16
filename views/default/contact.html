@@ -1,3 +1,5 @@
 {{extend 'layout.html'}}
-<h1>Este é o template default/contact.html</h1>
-{{=BEAUTIFY(response._vars)}}
+<h3>Deseja se comunicar conosco? </h3>
+{{=form}}
+{{=BEAUTIFY(request.vars)}}
+{{=request.vars}}
