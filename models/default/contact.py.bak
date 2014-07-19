@@ -1,0 +1,8 @@
+# coding: utf8
+
+def contact():
+    form=FORM(TABLE(TR("Seu Nome:",INPUT(_type="text",_name="name",requires=IS_NOT_EMPTY())),
+    TR("Seu Email:",INPUT(_type="text",_name="email",requires=IS_EMAIL())),
+    TR("Assunto:",INPUT(_type="text",_name="assunto",requires=IS_NOT_EMPTY())),
+    TR("Mensagem:",TEXTAREA(_name="mensagem"),requires=IS_NOT_EMPTY()),
+    TR("",INPUT(_type="submit",_value="Enviar",_action=send_email()))))

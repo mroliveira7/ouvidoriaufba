@@ -1,13 +1,8 @@
 # -*- coding: utf-8 -*-
 ### required - do no delete
 
-#from gluon.tools import Mail
+from gluon.tools import Mail
 
-#mail = Mail()
-
-#mail.settings.server = 'smtp.gmail.com:465'
-#mail.settings.sender = 'myemail@gmail.com'
-#mail.settings.login = 'myemail@gmail.com:secret'
 
 def user(): return dict(form=auth())
 def download(): return response.download(request,db)
@@ -18,10 +13,14 @@ def index():
 
 def contact():
     form=FORM(TABLE(TR("Seu Nome:",INPUT(_type="text",_name="name",requires=IS_NOT_EMPTY())),
-                    TR("Seu Email:",INPUT(_type="text",_name="email",requires=IS_EMAIL())),
-                    TR("Mensagem:",TEXTAREA(_name="mensagem")),
-                    TR("",INPUT(_type="submit",_value="Enviar"))))
-    return dict(form=form, vars=form.vars)
+    TR("Seu Email:",INPUT(_type="text",_name="email",requires=IS_EMAIL())),
+    TR("Assunto:",INPUT(_type="text",_name="assunto",requires=IS_NOT_EMPTY())),
+    TR("Mensagem:",TEXTAREA(_name="mensagem"),requires=IS_NOT_EMPTY()),
+    TR("",INPUT(_type="submit",_value="Enviar"))))
+    if form.process().accepted:
+        send_email(form.vars.name, form.vars.email, form.vars.assunto, form.vars.mensagem)
+    return dict(form=form)
+
 
 def error():
     return dict()

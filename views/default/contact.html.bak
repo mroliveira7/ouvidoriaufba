@@ -2,4 +2,4 @@
 <h3>Deseja se comunicar conosco? </h3>
 {{=form}}
 {{=BEAUTIFY(request.vars)}}
-{{=request.vars[1]}}
+{{=request.vars}}
