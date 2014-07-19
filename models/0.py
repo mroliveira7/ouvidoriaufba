@@ -20,4 +20,5 @@ settings.plugins = []
 
 error_m = {
 'vazio':'Este campo não pode estar vazio, Por favor preencha este campo',
-'imagem':'O arquivo precisa ser uma imagem. Por favor, selecione uma uma imagem válida'}
+'imagem':'O arquivo precisa ser uma imagem. Por favor, selecione uma uma imagem válida',
+'email':'Insira um e-mail válido'}

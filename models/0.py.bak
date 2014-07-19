@@ -17,3 +17,7 @@ settings.email_login = ''
 settings.login_method = 'local'
 settings.login_config = ''
 settings.plugins = []
+
+error_m = {
+'vazio':'Este campo não pode estar vazio, Por favor preencha este campo',
+'imagem':'O arquivo precisa ser uma imagem. Por favor, selecione uma uma imagem válida'}

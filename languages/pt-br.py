@@ -125,6 +125,7 @@
 'Index': 'Início',
 'insert new': 'inserir novo',
 'insert new %s': 'inserir novo %s',
+'Insira um e-mail válido': 'Insira um e-mail válido',
 'Insira um valor válido': 'Insira um valor válido',
 'Internal State': 'Estado Interno',
 'Introduction': 'Introduction',
