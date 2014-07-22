@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.TypeError'> long() argument must be a string or a number, not 'Table'"
+p3
+sS'layer'
+p4
+S'/home/ricardo/web2py/applications/OuvidoriaUfba/models/db_wizard.py'
+p5
+sS'code'
+p6
+S"### we prepend t_ to tablenames and f_ to fieldnames for disambiguity\n\n\n########################################\ndb.define_table('t_db_sigeo',\n    Field('f_tipo', type='string',\n          label=T('Tipo')),\n    Field('f_assunto', type='string',\n          label=T('Assunto')),\n    Field('f_local', type='string',\n          label=T('Local')),\n    Field('f_descricao', type='string',\n    \t  label=T('Descri\xc3\xa7\xc3\xa3o')),\n    Field('f_foto', type='upload',\n          label=T('Foto')),\n    auth.signature,\n    format='%(f_assunto)s',\n    migrate=settings.migrate)\n\ndb.t_db_sigeo.f_tipo.requires=IS_IN_SET(('Patrim\xc3\xb4nio danificado','Outro1','Outro2'),error_message='Insira um valor v\xc3\xa1lido')\ndb.t_db_sigeo.f_foto.requires=IS_EMPTY_OR(IS_IMAGE(extensions=('jpeg', 'png', '.gif'),\nerror_message=error_m['imagem']))\ndb.t_db_sigeo.f_assunto.requires=IS_NOT_EMPTY(error_message=error_m['vazio'])\ndb.t_db_sigeo.f_local.requires=IS_NOT_EMPTY(error_message=error_m['vazio'])\ndb.t_db_sigeo.f_descricao.requires=IS_NOT_EMPTY(error_message=error_m['vazio'])\n\ndb.define_table('t_db_sigeo_archive',db.t_db_sigeo,Field('current_record','reference t_db_sigeo',readable=False,writable=False))\n\ncrud.settings.auth = auth\n\ngroup_id = db.auth_user\nauth.add_permission(group_id, 'read', db.t_db_sigeo)\nauth.add_permission(group_id, 'create', db.t_db_sigeo)\n"
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/home/ricardo/web2py/gluon/restricted.py", line 220, in restricted\n    exec ccode in environment\n  File "/home/ricardo/web2py/applications/OuvidoriaUfba/models/db_wizard.py", line 32, in <module>\n    auth.add_permission(group_id, \'read\', db.t_db_sigeo)\n  File "/home/ricardo/web2py/gluon/tools.py", line 3512, in add_permission\n    permission.record_id == long(record_id)).select(limitby=(0,1), orderby_on_limitby=False).first()\n  File "/home/ricardo/web2py/gluon/dal.py", line 10525, in select\n    return adapter.select(self.query,fields,attributes)\n  File "/home/ricardo/web2py/gluon/dal.py", line 2458, in select\n    return super(SQLiteAdapter, self).select(query, fields, attributes)\n  File "/home/ricardo/web2py/gluon/dal.py", line 1869, in select\n    sql = self._select(query, fields, attributes)\n  File "/home/ricardo/web2py/gluon/dal.py", line 1774, in _select\n    sql_w = \' WHERE \' + self.expand(query) if query else \'\'\n  File "/home/ricardo/web2py/gluon/dal.py", line 1541, in expand\n    out = op(first, second, **optional_args)\n  File "/home/ricardo/web2py/gluon/dal.py", line 1381, in AND\n    return \'(%s AND %s)\' % (self.expand(first), self.expand(second))\n  File "/home/ricardo/web2py/gluon/dal.py", line 1541, in expand\n    out = op(first, second, **optional_args)\n  File "/home/ricardo/web2py/gluon/dal.py", line 1381, in AND\n    return \'(%s AND %s)\' % (self.expand(first), self.expand(second))\n  File "/home/ricardo/web2py/gluon/dal.py", line 1541, in expand\n    out = op(first, second, **optional_args)\n  File "/home/ricardo/web2py/gluon/dal.py", line 1381, in AND\n    return \'(%s AND %s)\' % (self.expand(first), self.expand(second))\n  File "/home/ricardo/web2py/gluon/dal.py", line 1541, in expand\n    out = op(first, second, **optional_args)\n  File "/home/ricardo/web2py/gluon/dal.py", line 1438, in EQ\n    self.expand(second, first.type))\n  File "/home/ricardo/web2py/gluon/dal.py", line 1552, in expand\n    return str(self.represent(expression,field_type))\n  File "/home/ricardo/web2py/gluon/dal.py", line 2014, in represent\n    return str(long(obj))\nTypeError: long() argument must be a string or a number, not \'Table\'\n'
+p11
+s.

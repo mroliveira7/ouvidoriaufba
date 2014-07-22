@@ -27,5 +27,10 @@ def error():
 
 @auth.requires_login()
 def db_sigeo_manage():
-    form = SQLFORM.smartgrid(db.t_db_sigeo,onupdate=auth.archive)
+    
+    db.t_db_sigeo.id.readable=False
+    #A linha abaixo ordena conforme a urgencia, para usa-la incluir um parametro no form 'orderby=default_sort_order'
+    default_sort_order=[db.t_db_sigeo.f_urgencia]
+    form = SQLFORM.smartgrid(db.t_db_sigeo,onupdate=auth.archive, editable=False, deletable=auth.has_membership('delete','db.auth_user'),sortable=True, orderby=default_sort_order,links = [lambda row: A(('Urgencia!'), _href=URL("controllers","urgencia"))])
     return locals()
+

@@ -17,3 +17,4 @@ def send_email(nome, email, assunto, mensagem):
             response.flash = 'Falha ao enviar email, desculpe'
     else:
         response.flash = 'Incapaz de enviar email : parametros de email não definidos'
+

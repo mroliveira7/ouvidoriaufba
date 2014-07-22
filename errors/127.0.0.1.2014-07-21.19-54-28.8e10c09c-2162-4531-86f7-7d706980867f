@@ -1,0 +1,875 @@
+(dp1
+S'output'
+p2
+S"<class 'sqlite3.IntegrityError'> foreign key constraint failed"
+p3
+sS'layer'
+p4
+S'/home/ricardo/web2py/applications/OuvidoriaUfba/controllers/default.py'
+p5
+sS'code'
+p6
+S'# -*- coding: utf-8 -*-\n### required - do no delete\n\nfrom gluon.tools import Mail\n\n\ndef user(): return dict(form=auth())\ndef download(): return response.download(request,db)\ndef call(): return service()\n### end requires\ndef index():\n    return dict()\n\ndef contact():\n    form=FORM(TABLE(TR("Seu Nome:",INPUT(_type="text",_name="name",requires=IS_NOT_EMPTY(error_message=error_m[\'vazio\']))),\n    TR("Seu Email:",INPUT(_type="text",_name="email",requires=IS_EMAIL(error_message=error_m[\'email\']))),\n    TR("Assunto:",INPUT(_type="text",_name="assunto",requires=IS_NOT_EMPTY(error_message=error_m[\'vazio\']))),\n    TR("Mensagem:",TEXTAREA(_name="mensagem"),requires=IS_NOT_EMPTY(error_message=error_m[\'vazio\'])),\n    TR("",INPUT(_type="submit",_value="Enviar"))))\n    if form.process().accepted:\n        send_email(form.vars.name, form.vars.email, form.vars.assunto, form.vars.mensagem)\n    return dict(form=form)\n\n\ndef error():\n    return dict()\n\n@auth.requires_login()\ndef db_sigeo_manage():\n    \n    db.t_db_sigeo.id.readable=False\n    #A linha abaixo ordena conforme a urgencia, para usa-la incluir um parametro no form \'orderby=default_sort_order\'\n    #default_sort_order=[db.t_db_sigeo.urgencia]\n\n    form = SQLFORM.smartgrid(db.t_db_sigeo,onupdate=auth.archive, editable=False, deletable=auth.has_membership(\'delete_group\'))\n    return locals()\n\n\nresponse._vars=response._caller(db_sigeo_manage)\n'
+p7
+sS'snapshot'
+p8
+(dp9
+S'exception'
+p10
+(dp11
+S'__module__'
+p12
+S"'sqlite3'"
+p13
+sS'__getslice__'
+p14
+S"<method-wrapper '__getslice__' of IntegrityError object>"
+p15
+sS'__str__'
+p16
+S"<method-wrapper '__str__' of IntegrityError object>"
+p17
+sS'__reduce__'
+p18
+S'<built-in method __reduce__ of IntegrityError object>'
+p19
+sS'__dict__'
+p20
+S'{}'
+p21
+sS'__sizeof__'
+p22
+S'<built-in method __sizeof__ of IntegrityError object>'
+p23
+sS'__weakref__'
+p24
+S'None'
+p25
+sS'__init__'
+p26
+S"<method-wrapper '__init__' of IntegrityError object>"
+p27
+sS'__setattr__'
+p28
+S"<method-wrapper '__setattr__' of IntegrityError object>"
+p29
+sS'__reduce_ex__'
+p30
+S'<built-in method __reduce_ex__ of IntegrityError object>'
+p31
+sS'__new__'
+p32
+S'<built-in method __new__ of type object>'
+p33
+sS'__format__'
+p34
+S'<built-in method __format__ of IntegrityError object>'
+p35
+sS'__class__'
+p36
+S"<class 'sqlite3.IntegrityError'>"
+p37
+sS'__doc__'
+p38
+S'None'
+p39
+sS'__getitem__'
+p40
+S"<method-wrapper '__getitem__' of IntegrityError object>"
+p41
+sS'__setstate__'
+p42
+S'<built-in method __setstate__ of IntegrityError object>'
+p43
+sS'__getattribute__'
+p44
+S"<method-wrapper '__getattribute__' of IntegrityError object>"
+p45
+sS'args'
+p46
+S"('foreign key constraint failed',)"
+p47
+sS'__subclasshook__'
+p48
+S'<built-in method __subclasshook__ of type object>'
+p49
+sS'__unicode__'
+p50
+S'<built-in method __unicode__ of IntegrityError object>'
+p51
+sS'__delattr__'
+p52
+S"<method-wrapper '__delattr__' of IntegrityError object>"
+p53
+sS'__repr__'
+p54
+S"<method-wrapper '__repr__' of IntegrityError object>"
+p55
+sS'__hash__'
+p56
+S"<method-wrapper '__hash__' of IntegrityError object>"
+p57
+ssS'evalue'
+p58
+S'foreign key constraint failed'
+p59
+sS'request'
+p60
+cgluon.html
+XML_unpickle
+p61
+(S's\x9a\xa3\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">ajax</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">application</td><td style="vertical-align:top;">:</td><td><div>OuvidoriaUfba</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">args</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>t_db_sigeo</div></td></tr><tr><td><div>new</div></td></tr><tr><td><div>t_db_sigeo</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cid</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">client</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">controller</td><td style="vertical-align:top;">:</td><td><div>default</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cookies</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">session_data_examples</td><td style="vertical-align:top;">:</td><td><div>43509ce376a956180ff4d84bdb534dfb:70jPxN-Of6LKkPlitn1wKOu1bTHTkT9pzmWsGhDjyq8xN_Oi1gPhgcXIB7NpEkYtU7zdPCOZaaakvkLVoVdRaiTizMjlv5PISSKeQsL3hGRCc0FAOAj1I587bdtDkxlSTaPmt79UVSJl2Q5wVJrXKfne4-EoC3HCPPyJjCFqp3B96rKHDfTBbl4YkIWHSb7pArRW25wpoyLmBx9m3-TTUa4N3xWws2tFcMQiv1orDP2CYsp8RD7jieEjMOWlp3gJqx1LjvnoMWe6N_Abm1P19FPt7GLNe8GsBgJI1jQJHsz7KK1eARgWp3KpBecPS1VdIoy-3DIjzNtPZ-DE1iNZmQFBBzy77e3EVRHC6-veqEn_86uZLXBzwF73ni1xeVpiK1SyEsKVDA9MCyWg2rW8Zp1oDzygdKGm6KlR1B0HcXhncC2f8RtuJ4EGoZQQ0Gqz<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_admin</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-dbd1ab78-5276-4670-9848-2002cfe76dd5<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_applinda</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-6f6e122c-c2b3-47b8-abca-772250d31bf9<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_examples</td><td style="vertical-align:top;">:</td><td><div>True<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_inicial</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-17352d02-4ea0-4a6e-9e01-83532879f75d<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_jeba</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-40ac4000-48ef-4f37-9e48-ee479baca354<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_lojad</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-08140b06-0447-47e4-8378-7ed2050abc2a<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_lojadecarro</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-a5d33a6f-6a83-48ab-9ef3-7a5508b76ba9<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_lojadecarros</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-75292e37-d561-4377-8e80-c4f60ced31da<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_myappzero</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-da136172-3e85-41b4-ac0a-2afa48fce0b0<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_ouvidoriaufba</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-73ae8926-3fd9-42a8-944d-dd18b09a60fa<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_ricardolindo</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-d4ca2c5f-4c11-4099-a4b1-4ead59fb2349<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_testando</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-0c6465f8-2b03-4bbe-b362-e42a42300510<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_welcome</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-c2c5565a-d4c4-4edb-a7e0-4a124c3571b2<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">env</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">CONTENT_LENGTH</td><td style="vertical-align:top;">:</td><td><div>849</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">CONTENT_TYPE</td><td style="vertical-align:top;">:</td><td><div>multipart/form-data; boundary=----WebKitFormBoundaryNNRgii4H9cAHlSrB</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT</td><td style="vertical-align:top;">:</td><td><div>text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT_ENCODING</td><td style="vertical-align:top;">:</td><td><div>gzip,deflate,sdch</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT_LANGUAGE</td><td style="vertical-align:top;">:</td><td><div>pt-BR,pt;q=0.8,en-US;q=0.6,en;q=0.4</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CACHE_CONTROL</td><td style="vertical-align:top;">:</td><td><div>max-age=0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CONNECTION</td><td style="vertical-align:top;">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CONTENT_LENGTH</td><td style="vertical-align:top;">:</td><td><div>849</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CONTENT_TYPE</td><td style="vertical-align:top;">:</td><td><div>multipart/form-data; boundary=----WebKitFormBoundaryNNRgii4H9cAHlSrB</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_COOKIE</td><td style="vertical-align:top;">:</td><td><div>session_id_applinda=127.0.0.1-6f6e122c-c2b3-47b8-abca-772250d31bf9; session_id_testando=127.0.0.1-0c6465f8-2b03-4bbe-b362-e42a42300510; session_data_examples=&quot;43509ce376a956180ff4d84bdb534dfb:70jPxN-Of6LKkPlitn1wKOu1bTHTkT9pzmWsGhDjyq8xN_Oi1gPhgcXIB7NpEkYtU7zdPCOZaaakvkLVoVdRaiTizMjlv5PISSKeQsL3hGRCc0FAOAj1I587bdtDkxlSTaPmt79UVSJl2Q5wVJrXKfne4-EoC3HCPPyJjCFqp3B96rKHDfTBbl4YkIWHSb7pArRW25wpoyLmBx9m3-TTUa4N3xWws2tFcMQiv1orDP2CYsp8RD7jieEjMOWlp3gJqx1LjvnoMWe6N_Abm1P19FPt7GLNe8GsBgJI1jQJHsz7KK1eARgWp3KpBecPS1VdIoy-3DIjzNtPZ-DE1iNZmQFBBzy77e3EVRHC6-veqEn_86uZLXBzwF73ni1xeVpiK1SyEsKVDA9MCyWg2rW8Zp1oDzygdKGm6KlR1B0HcXhncC2f8RtuJ4EGoZQQ0Gqz&quot;; session_id_inicial=127.0.0.1-17352d02-4ea0-4a6e-9e01-83532879f75d; session_id_examples=True; session_id_lojad=127.0.0.1-08140b06-0447-47e4-8378-7ed2050abc2a; session_id_lojadecarros=127.0.0.1-75292e37-d561-4377-8e80-c4f60ced31da; session_id_lojadecarro=127.0.0.1-a5d33a6f-6a83-48ab-9ef3-7a5508b76ba9; session_id_jeba=127.0.0.1-40ac4000-48ef-4f37-9e48-ee479baca354; session_id_myappzero=127.0.0.1-da136172-3e85-41b4-ac0a-2afa48fce0b0; session_id_ricardolindo=127.0.0.1-d4ca2c5f-4c11-4099-a4b1-4ead59fb2349; session_id_welcome=127.0.0.1-c2c5565a-d4c4-4edb-a7e0-4a124c3571b2; session_id_admin=127.0.0.1-dbd1ab78-5276-4670-9848-2002cfe76dd5; session_id_ouvidoriaufba=127.0.0.1-73ae8926-3fd9-42a8-944d-dd18b09a60fa</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_HOST</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ORIGIN</td><td style="vertical-align:top;">:</td><td><div>http://127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_REFERER</td><td style="vertical-align:top;">:</td><td><div>http://127.0.0.1:8000/OuvidoriaUfba/default/db_sigeo_manage/t_db_sigeo/new/t_db_sigeo?_signature=83f2f7334fa02caaa4e54a3f85cf0dd4cdb1b26b</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_USER_AGENT</td><td style="vertical-align:top;">:</td><td><div>Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.137 Safari/537.36</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">PATH_INFO</td><td style="vertical-align:top;">:</td><td><div>/OuvidoriaUfba/default/db_sigeo_manage/t_db_sigeo/new/t_db_sigeo</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">QUERY_STRING</td><td style="vertical-align:top;">:</td><td><div>_signature=83f2f7334fa02caaa4e54a3f85cf0dd4cdb1b26b</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REMOTE_ADDR</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REMOTE_PORT</td><td style="vertical-align:top;">:</td><td><div>41221</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REQUEST_METHOD</td><td style="vertical-align:top;">:</td><td><div>POST</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SCRIPT_NAME</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_NAME</td><td style="vertical-align:top;">:</td><td><div>Ricardo</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_PORT</td><td style="vertical-align:top;">:</td><td><div>8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_PROTOCOL</td><td style="vertical-align:top;">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_SOFTWARE</td><td style="vertical-align:top;">:</td><td><div>Rocket 1.2.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">app_folders</td><td style="vertical-align:top;">:</td><td><div>set([&#x27;/home/ricardo/web2py/applications/admin/&#x27;, &#x27;/home/ricardo/web2py/applications/OuvidoriaUfba/&#x27;, &#x27;/home/ricardo/web2py/applications/welcome/&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">applications_parent</td><td style="vertical-align:top;">:</td><td><div>/home/ricardo/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_options</td><td style="vertical-align:top;">:</td><td><div>&lt;Values at 0x2b6bd88: {&#x27;verbose&#x27;: False, &#x27;ip&#x27;: &#x27;127.0.0.1&#x27;, &#x27;debuglevel&#x27;: 30, &#x27;with_scheduler&#x27;: False, &#x27;ips&#x27;: [&#x27;127.0.1.1&#x27;], &#x27;shutdown_timeout&#x27;: 5, &#x27;taskbar&#x27;: False, &#x27;with_coverage&#x27;: False, &#x27;port&#x27;: 8000, &#x27;maxthreads&#x27;: None, &#x27;softcron&#x27;: False, &#x27;server_name&#x27;: &#x27;Ricardo&#x27;, &#x27;bpython&#x27;: False, &#x27;nogui&#x27;: False, &#x27;pid_filename&#x27;: &#x27;httpserver.pid&#x27;, &#x27;extcron&#x27;: False, &#x27;runcron&#x27;: False, &#x27;run_system_tests&#x27;: False, &#x27;test&#x27;: None, &#x27;folder&#x27;: &#x27;/home/ricardo/web2py&#x27;, &#x27;config&#x27;: &#x27;&#x27;, &#x27;minthreads&#x27;: None, &#x27;shell&#x27;: None, &#x27;run&#x27;: &#x27;&#x27;, &#x27;log_filename&#x27;: &#x27;httpserver.log&#x27;, &#x27;profiler_dir&#x27;: None, &#x27;args&#x27;: [&#x27;&#x27;], &#x27;socket_timeout&#x27;: 5, &#x27;ssl_ca_certificate&#x27;: None, &#x27;scheduler&#x27;: None, &#x27;interfaces&#x27;: None, &#x27;ssl_private_key&#x27;: &#x27;&#x27;, &#x27;scheduler_groups&#x27;: None, &#x27;password&#x27;: &#x27;&lt;ask&gt;&#x27;, &#x27;request_queue_size&#x27;: 5, &#x27;ssl_certificate&#x27;: &#x27;&#x27;, &#x27;cronjob&#x27;: False, &#x27;numthreads&#x27;: None, &#x27;quiet&#x27;: False, &#x27;import_models&#x27;: False, &#x27;timeout&#x27;: 10, &#x27;plain&#x27;: False, &#x27;nobanner&#x27;: False}&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">content_length</td><td style="vertical-align:top;">:</td><td><div>849</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">content_type</td><td style="vertical-align:top;">:</td><td><div>multipart/form-data; boundary=----WebKitFormBoundaryNNRgii4H9cAHlSrB</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">db_sessions</td><td style="vertical-align:top;">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">debugging</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gluon_parent</td><td style="vertical-align:top;">:</td><td><div>/home/ricardo/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept</td><td style="vertical-align:top;">:</td><td><div>text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept_encoding</td><td style="vertical-align:top;">:</td><td><div>gzip,deflate,sdch</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept_language</td><td style="vertical-align:top;">:</td><td><div>pt-BR,pt;q=0.8,en-US;q=0.6,en;q=0.4</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_cache_control</td><td style="vertical-align:top;">:</td><td><div>max-age=0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_connection</td><td style="vertical-align:top;">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_content_length</td><td style="vertical-align:top;">:</td><td><div>849</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_content_type</td><td style="vertical-align:top;">:</td><td><div>multipart/form-data; boundary=----WebKitFormBoundaryNNRgii4H9cAHlSrB</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_cookie</td><td style="vertical-align:top;">:</td><td><div>session_id_applinda=127.0.0.1-6f6e122c-c2b3-47b8-abca-772250d31bf9; session_id_testando=127.0.0.1-0c6465f8-2b03-4bbe-b362-e42a42300510; session_data_examples=&quot;43509ce376a956180ff4d84bdb534dfb:70jPxN-Of6LKkPlitn1wKOu1bTHTkT9pzmWsGhDjyq8xN_Oi1gPhgcXIB7NpEkYtU7zdPCOZaaakvkLVoVdRaiTizMjlv5PISSKeQsL3hGRCc0FAOAj1I587bdtDkxlSTaPmt79UVSJl2Q5wVJrXKfne4-EoC3HCPPyJjCFqp3B96rKHDfTBbl4YkIWHSb7pArRW25wpoyLmBx9m3-TTUa4N3xWws2tFcMQiv1orDP2CYsp8RD7jieEjMOWlp3gJqx1LjvnoMWe6N_Abm1P19FPt7GLNe8GsBgJI1jQJHsz7KK1eARgWp3KpBecPS1VdIoy-3DIjzNtPZ-DE1iNZmQFBBzy77e3EVRHC6-veqEn_86uZLXBzwF73ni1xeVpiK1SyEsKVDA9MCyWg2rW8Zp1oDzygdKGm6KlR1B0HcXhncC2f8RtuJ4EGoZQQ0Gqz&quot;; session_id_inicial=127.0.0.1-17352d02-4ea0-4a6e-9e01-83532879f75d; session_id_examples=True; session_id_lojad=127.0.0.1-08140b06-0447-47e4-8378-7ed2050abc2a; session_id_lojadecarros=127.0.0.1-75292e37-d561-4377-8e80-c4f60ced31da; session_id_lojadecarro=127.0.0.1-a5d33a6f-6a83-48ab-9ef3-7a5508b76ba9; session_id_jeba=127.0.0.1-40ac4000-48ef-4f37-9e48-ee479baca354; session_id_myappzero=127.0.0.1-da136172-3e85-41b4-ac0a-2afa48fce0b0; session_id_ricardolindo=127.0.0.1-d4ca2c5f-4c11-4099-a4b1-4ead59fb2349; session_id_welcome=127.0.0.1-c2c5565a-d4c4-4edb-a7e0-4a124c3571b2; session_id_admin=127.0.0.1-dbd1ab78-5276-4670-9848-2002cfe76dd5; session_id_ouvidoriaufba=127.0.0.1-73ae8926-3fd9-42a8-944d-dd18b09a60fa</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_host</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_origin</td><td style="vertical-align:top;">:</td><td><div>http://127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_referer</td><td style="vertical-align:top;">:</td><td><div>http://127.0.0.1:8000/OuvidoriaUfba/default/db_sigeo_manage/t_db_sigeo/new/t_db_sigeo?_signature=83f2f7334fa02caaa4e54a3f85cf0dd4cdb1b26b</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_user_agent</td><td style="vertical-align:top;">:</td><td><div>Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.137 Safari/537.36</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_jython</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_pypy</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_source</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">local_hosts</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>Ricardo</div></td></tr><tr><td><div>127.0.1.1</div></td></tr><tr><td><div>Ricardo.net</div></td></tr><tr><td><div>127.0.0.1</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path_info</td><td style="vertical-align:top;">:</td><td><div>/OuvidoriaUfba/default/db_sigeo_manage/t_db_sigeo/new/t_db_sigeo</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">query_string</td><td style="vertical-align:top;">:</td><td><div>_signature=83f2f7334fa02caaa4e54a3f85cf0dd4cdb1b26b</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remote_addr</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remote_port</td><td style="vertical-align:top;">:</td><td><div>41221</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_method</td><td style="vertical-align:top;">:</td><td><div>POST</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_uri</td><td style="vertical-align:top;">:</td><td><div>/OuvidoriaUfba/default/db_sigeo_manage/t_db_sigeo/new/t_db_sigeo?_signature=83f2f7334fa02caaa4e54a3f85cf0dd4cdb1b26b</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">script_name</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_name</td><td style="vertical-align:top;">:</td><td><div>Ricardo</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_port</td><td style="vertical-align:top;">:</td><td><div>8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_protocol</td><td style="vertical-align:top;">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_software</td><td style="vertical-align:top;">:</td><td><div>Rocket 1.2.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_path</td><td style="vertical-align:top;">:</td><td><div>/home/ricardo/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_version</td><td style="vertical-align:top;">:</td><td><div>2.9.5-stable+timestamp.2014.03.16.02.35.39</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.errors</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;&lt;stderr&gt;&#x27;, mode &#x27;w&#x27; at 0x7f119241a270&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.file_wrapper</td><td style="vertical-align:top;">:</td><td><div>&lt;class wsgiref.util.FileWrapper at 0x2addc80&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.input</td><td style="vertical-align:top;">:</td><td><div>&lt;socket._fileobject object at 0x3d150d0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.multiprocess</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.multithread</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.run_once</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.url_scheme</td><td style="vertical-align:top;">:</td><td><div>http</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_errors</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;&lt;stderr&gt;&#x27;, mode &#x27;w&#x27; at 0x7f119241a270&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_file_wrapper</td><td style="vertical-align:top;">:</td><td><div>&lt;class wsgiref.util.FileWrapper at 0x2addc80&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_input</td><td style="vertical-align:top;">:</td><td><div>&lt;socket._fileobject object at 0x3d150d0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_multiprocess</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_multithread</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_run_once</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_url_scheme</td><td style="vertical-align:top;">:</td><td><div>http</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">extension</td><td style="vertical-align:top;">:</td><td><div>html</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">folder</td><td style="vertical-align:top;">:</td><td><div>/home/ricardo/web2py/applications/OuvidoriaUfba/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">function</td><td style="vertical-align:top;">:</td><td><div>db_sigeo_manage</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">global_settings</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">app_folders</td><td style="vertical-align:top;">:</td><td><div>set([&#x27;/home/ricardo/web2py/applications/admin/&#x27;, &#x27;/home/ricardo/web2py/applications/OuvidoriaUfba/&#x27;, &#x27;/home/ricardo/web2py/applications/welcome/&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">applications_parent</td><td style="vertical-align:top;">:</td><td><div>/home/ricardo/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_options</td><td style="vertical-align:top;">:</td><td><div>&lt;Values at 0x2b6bd88: {&#x27;verbose&#x27;: False, &#x27;ip&#x27;: &#x27;127.0.0.1&#x27;, &#x27;debuglevel&#x27;: 30, &#x27;with_scheduler&#x27;: False, &#x27;ips&#x27;: [&#x27;127.0.1.1&#x27;], &#x27;shutdown_timeout&#x27;: 5, &#x27;taskbar&#x27;: False, &#x27;with_coverage&#x27;: False, &#x27;port&#x27;: 8000, &#x27;maxthreads&#x27;: None, &#x27;softcron&#x27;: False, &#x27;server_name&#x27;: &#x27;Ricardo&#x27;, &#x27;bpython&#x27;: False, &#x27;nogui&#x27;: False, &#x27;pid_filename&#x27;: &#x27;httpserver.pid&#x27;, &#x27;extcron&#x27;: False, &#x27;runcron&#x27;: False, &#x27;run_system_tests&#x27;: False, &#x27;test&#x27;: None, &#x27;folder&#x27;: &#x27;/home/ricardo/web2py&#x27;, &#x27;config&#x27;: &#x27;&#x27;, &#x27;minthreads&#x27;: None, &#x27;shell&#x27;: None, &#x27;run&#x27;: &#x27;&#x27;, &#x27;log_filename&#x27;: &#x27;httpserver.log&#x27;, &#x27;profiler_dir&#x27;: None, &#x27;args&#x27;: [&#x27;&#x27;], &#x27;socket_timeout&#x27;: 5, &#x27;ssl_ca_certificate&#x27;: None, &#x27;scheduler&#x27;: None, &#x27;interfaces&#x27;: None, &#x27;ssl_private_key&#x27;: &#x27;&#x27;, &#x27;scheduler_groups&#x27;: None, &#x27;password&#x27;: &#x27;&lt;ask&gt;&#x27;, &#x27;request_queue_size&#x27;: 5, &#x27;ssl_certificate&#x27;: &#x27;&#x27;, &#x27;cronjob&#x27;: False, &#x27;numthreads&#x27;: None, &#x27;quiet&#x27;: False, &#x27;import_models&#x27;: False, &#x27;timeout&#x27;: 10, &#x27;plain&#x27;: False, &#x27;nobanner&#x27;: False}&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">db_sessions</td><td style="vertical-align:top;">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">debugging</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gluon_parent</td><td style="vertical-align:top;">:</td><td><div>/home/ricardo/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_jython</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_pypy</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_source</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">local_hosts</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>Ricardo</div></td></tr><tr><td><div>127.0.1.1</div></td></tr><tr><td><div>Ricardo.net</div></td></tr><tr><td><div>127.0.0.1</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_version</td><td style="vertical-align:top;">:</td><td><div>2.9.5-stable+timestamp.2014.03.16.02.35.39</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_https</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_local</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_restful</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">now</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2014, 7, 21, 19, 54, 28, 849399)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">raw_args</td><td style="vertical-align:top;">:</td><td><div>t_db_sigeo/new/t_db_sigeo</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">raw_extension</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">url</td><td style="vertical-align:top;">:</td><td><div>/OuvidoriaUfba/default/db_sigeo_manage/t_db_sigeo/new/t_db_sigeo</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">utcnow</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2014, 7, 21, 22, 54, 28, 849428)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">uuid</td><td style="vertical-align:top;">:</td><td><div>OuvidoriaUfba/127.0.0.1.2014-07-21.19-54-28.8e10c09c-2162-4531-86f7-7d706980867f</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi</td><td style="vertical-align:top;">:</td><td><div>&lt;gluon.main.LazyWSGI object at 0x3627ad0&gt;</div></td></tr></table></div>'
+tRp62
+sS'frames'
+p63
+(lp64
+(dp65
+S'file'
+p66
+S'/home/ricardo/web2py/gluon/restricted.py'
+p67
+sS'dump'
+p68
+(dp69
+S'environment'
+p70
+S"{'A': <class 'gluon.html.A'>, 'ANY_OF': <class 'gluon.validators.ANY_OF'>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'BUTTON': <class 'gluon.html.BUTTON'>, 'CAT': <class 'gluon.html.CAT'>, 'CENTER': <class 'gluon.html.CENTER'>, ...}"
+p71
+sS'ccode'
+p72
+S'<code object <module> at 0x3c64030, file "/home/...ns/OuvidoriaUfba/controllers/default.py", line 4>'
+p73
+ssS'lnum'
+p74
+I220
+sS'lines'
+p75
+(dp76
+I224
+S'        # do not encapsulate (obfuscate) the original RestrictedError'
+p77
+sI215
+S'    try:'
+p78
+sI216
+S'        if isinstance(code, types.CodeType):'
+p79
+sI217
+S'            ccode = code'
+p80
+sI218
+S'        else:'
+p81
+sI219
+S'            ccode = compile2(code, layer)'
+p82
+sI220
+S'        exec ccode in environment'
+p83
+sI221
+S'    except HTTP:'
+p84
+sI222
+S'        raise'
+p85
+sI223
+S'    except RestrictedError:'
+p86
+ssS'call'
+p87
+S"(code='# -*- coding: utf-8 -*-\\n### required - do no del...response._vars=response._caller(db_sigeo_manage)\\n', environment={'A': <class 'gluon.html.A'>, 'ANY_OF': <class 'gluon.validators.ANY_OF'>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'BUTTON': <class 'gluon.html.BUTTON'>, 'CAT': <class 'gluon.html.CAT'>, 'CENTER': <class 'gluon.html.CENTER'>, ...}, layer='/home/ricardo/web2py/applications/OuvidoriaUfba/controllers/default.py')"
+p88
+sS'func'
+p89
+S'restricted'
+p90
+sa(dp91
+g66
+S'/home/ricardo/web2py/applications/OuvidoriaUfba/controllers/default.py'
+p92
+sg68
+(dp93
+sg74
+I39
+sg75
+(dp94
+I32
+S"    #A linha abaixo ordena conforme a urgencia, para usa-la incluir um parametro no form 'orderby=default_sort_order'"
+p95
+sI33
+S'    #default_sort_order=[db.t_db_sigeo.urgencia]'
+p96
+sI34
+S''
+sI35
+S"    form = SQLFORM.smartgrid(db.t_db_sigeo,onupdate=auth.archive, editable=False, deletable=auth.has_membership('delete_group'))"
+p97
+sI36
+S'    return locals()'
+p98
+sI37
+S''
+sI28
+S'@auth.requires_login()'
+p99
+sI29
+S'def db_sigeo_manage():'
+p100
+sI30
+S''
+sI31
+S'    db.t_db_sigeo.id.readable=False'
+p101
+ssg87
+S'()'
+p102
+sg89
+S'<module>'
+p103
+sa(dp104
+g66
+S'/home/ricardo/web2py/gluon/globals.py'
+p105
+sg68
+(dp106
+S'self'
+p107
+S'undefined'
+p108
+sS'f'
+S'<function db_sigeo_manage>'
+p109
+ssg74
+I385
+sg75
+(dp110
+I384
+S'        self._vars = None'
+p111
+sI385
+S'        self._caller = lambda f: f()'
+p112
+sI386
+S'        self._view_environment = None'
+p113
+sI387
+S'        self._custom_commit = None'
+p114
+sI388
+S'        self._custom_rollback = None'
+p115
+sI389
+S''
+sI380
+S'        self.menu = []             # used by the default view layout'
+p116
+sI381
+S'        self.files = []            # used by web2py_ajax.html'
+p117
+sI382
+S'        self.generic_patterns = []  # patterns to allow generic views'
+p118
+sI383
+S"        self.delimiters = ('{{', '}}')"
+p119
+ssg87
+S'(f=<function db_sigeo_manage>)'
+p120
+sg89
+S'<lambda>'
+p121
+sa(dp122
+g66
+S'/home/ricardo/web2py/gluon/tools.py'
+p123
+sg68
+(dp124
+S'action'
+p125
+S'<function db_sigeo_manage>'
+p126
+sS'a'
+S'()'
+p127
+sS'b'
+g21
+ssg74
+I3287
+sg75
+(dp128
+I3282
+S'                    flag = condition'
+p129
+sI3283
+S'                if not flag:'
+p130
+sI3284
+S'                    current.session.flash = self.messages.access_denied'
+p131
+sI3285
+S'                    return call_or_redirect('
+p132
+sI3286
+S'                        self.settings.on_failed_authorization)'
+p133
+sI3287
+S'                return action(*a, **b)'
+p134
+sI3288
+S'            f.__doc__ = action.__doc__'
+p135
+sI3289
+S'            f.__name__ = action.__name__'
+p136
+sI3290
+S'            f.__dict__.update(action.__dict__)'
+p137
+sI3291
+S'            return f'
+p138
+ssg87
+S'(*a=(), **b={})'
+p139
+sg89
+S'f'
+sa(dp140
+g66
+S'/home/ricardo/web2py/applications/OuvidoriaUfba/controllers/default.py'
+p141
+sg68
+(dp142
+S'auth.has_membership'
+p143
+S'<bound method Auth.has_membership of <gluon.tools.Auth object>>'
+p144
+sS'builtinFalse'
+p145
+S'False'
+p146
+sS'auth.archive'
+p147
+S'<function archive>'
+p148
+sS'form'
+p149
+g108
+sS'global SQLFORM'
+p150
+S"<class 'gluon.sqlhtml.SQLFORM'>"
+p151
+sS'editable'
+p152
+g108
+sS'global auth'
+p153
+S'<gluon.tools.Auth object>'
+p154
+sS'onupdate'
+p155
+g108
+sS'deletable'
+p156
+g108
+sS'db.t_db_sigeo'
+p157
+S'<Table t_db_sigeo (id,f_tipo,f_assunto,f_local,f...e,created_on,created_by,modified_on,modified_by)>'
+p158
+sS'global db'
+p159
+S'<DAL uri="sqlite://storage.sqlite">'
+p160
+sS'SQLFORM.smartgrid'
+p161
+S'<function smartgrid>'
+p162
+ssg74
+I35
+sg75
+(dp163
+I32
+S"    #A linha abaixo ordena conforme a urgencia, para usa-la incluir um parametro no form 'orderby=default_sort_order'"
+p164
+sI33
+S'    #default_sort_order=[db.t_db_sigeo.urgencia]'
+p165
+sI34
+S''
+sI35
+S"    form = SQLFORM.smartgrid(db.t_db_sigeo,onupdate=auth.archive, editable=False, deletable=auth.has_membership('delete_group'))"
+p166
+sI36
+S'    return locals()'
+p167
+sI37
+S''
+sI28
+S'@auth.requires_login()'
+p168
+sI29
+S'def db_sigeo_manage():'
+p169
+sI30
+S''
+sI31
+S'    db.t_db_sigeo.id.readable=False'
+p170
+ssg87
+S'()'
+p171
+sg89
+S'db_sigeo_manage'
+p172
+sa(dp173
+g66
+S'/home/ricardo/web2py/gluon/sqlhtml.py'
+p174
+sg68
+(dp175
+S'user_signature'
+p176
+S'True'
+p177
+sS'kwargs'
+p178
+S"{'deletable': False, 'editable': False, 'onupdate': <function archive>}"
+p179
+ssg74
+I2800
+sg75
+(dp180
+I2795
+S'                            A(SPAN(t), cid=request.cid, _href=url('
+p181
+sI2796
+S'                              args=[args0, row[id_field_name]])))'
+p182
+sI2797
+S''
+sI2798
+S'        grid = SQLFORM.grid(query, args=request.args[:nargs], links=links,'
+p183
+sI2799
+S'                            links_in_grid=links_in_grid,'
+p184
+sI2800
+S'                            user_signature=user_signature, **kwargs)'
+p185
+sI2801
+S''
+sI2802
+S'        if isinstance(grid, DIV):'
+p186
+sI2803
+S'            header = table._plural'
+p187
+sI2804
+S'            next = grid.create_form or grid.update_form or grid.view_form'
+p188
+ssg87
+S"(table=<Table t_db_sigeo (id,f_tipo,f_assunto,f_local,f...e,created_on,created_by,modified_on,modified_by)>, constraints={}, linked_tables=['auth_user', 'auth_group', 'auth_membership', '...mission', 'auth_event', 'auth_cas', 't_db_sigeo'], links=[], links_in_grid=True, args=[], user_signature=True, divider='>', breadcrumbs_class='', **kwargs={'deletable': False, 'editable': False, 'onupdate': <function archive>})"
+p189
+sg89
+S'smartgrid'
+p190
+sa(dp191
+g66
+S'/home/ricardo/web2py/gluon/sqlhtml.py'
+p192
+sg68
+(dp193
+S'oncreate'
+p194
+S'None'
+p195
+sS'onsuccess'
+p196
+g108
+ssg74
+I2073
+sg75
+(dp197
+I2068
+S'            create_form = SQLFORM(table, **sqlformargs)'
+p198
+sI2069
+S'            create_form.process(formname=formname,'
+p199
+sI2070
+S'                                next=referrer,'
+p200
+sI2071
+S'                                onvalidation=onvalidation,'
+p201
+sI2072
+S'                                onfailure=onfailure,'
+p202
+sI2073
+S'                                onsuccess=oncreate)'
+p203
+sI2074
+S'            res = DIV(buttons(), create_form, formfooter, _class=_class)'
+p204
+sI2075
+S'            res.create_form = create_form'
+p205
+sI2076
+S'            res.update_form = update_form'
+p206
+sI2077
+S'            res.view_form = view_form'
+p207
+ssg87
+S"(query=<Query (t_db_sigeo.id IS NOT NULL)>, fields=[<gluon.dal.Field object>, <gluon.dal.Field object>, <gluon.dal.Field object>, <gluon.dal.Field object>, <gluon.dal.Field object>, <gluon.dal.Field object>, <gluon.dal.Field object>, <gluon.dal.Field object>, <gluon.dal.Field object>, <gluon.dal.Field object>, <gluon.dal.Field object>], field_id=<gluon.dal.Field object>, left=None, headers={}, orderby=None, groupby=None, searchable=True, sortable=True, paginate=20, deletable=False, editable=False, details=True, selectable=None, create=True, csv=True, links=[], links_in_grid=True, upload=<function <lambda>>, args=['t_db_sigeo'], user_signature=True, maxtextlengths={}, maxtextlength=20, onvalidation=None, onfailure=None, oncreate=None, onupdate=<function archive>, ondelete=None, sorter_icons=(<gluon.html.XML object>, <gluon.html.XML object>), ui={'button': 'button btn btn-default', 'buttonadd': 'icon plus icon-plus glyphicon glyphicon-plus', 'buttonback': 'icon leftarrow icon-arrow-left glyphicon glyphicon-arrow-left', 'buttondelete': 'icon trash icon-trash glyphicon glyphicon-trash', 'buttonedit': 'icon pen icon-pencil glyphicon glyphicon-arrow-pencil', 'buttonexport': 'icon downarrow icon-download glyphicon glyphicon-download', 'buttontable': 'icon rightarrow icon-arrow-right glyphicon glyphicon-arrow-right', 'buttontext': 'buttontext button', 'buttonview': 'icon magnifier icon-zoom-in glyphicon glyphicon-arrow-zoom-in', 'content': '', ...}, showbuttontext=True, _class='web2py_grid', formname='web2py_grid', search_widget='default', ignore_rw=False, formstyle='table3cols', exportclasses=None, formargs={}, createargs={}, editargs={}, viewargs={}, selectable_submit_button='Submit', buttons_placement='right', links_placement='right', noconfirm=False, cache_count=None, client_side_delete=False, ignore_common_filters=None)"
+p208
+sg89
+S'grid'
+p209
+sa(dp210
+g66
+S'/home/ricardo/web2py/gluon/html.py'
+p211
+sg68
+(dp212
+S'self'
+p213
+S'<gluon.sqlhtml.SQLFORM object>'
+p214
+sS'self.validate'
+p215
+S'<bound method SQLFORM.validate of <gluon.sqlhtml.SQLFORM object>>'
+p216
+sS'kwargs'
+p217
+S"{'dbio': True, 'formname': 'web2py_grid', 'next': '/OuvidoriaUfba/default/db_sigeo_manage/t_db_sige...ignature=bdd5c7e89165e4f733e863c681183b57ac2819b5', 'onfailure': None, 'onsuccess': None, 'onvalidation': None}"
+p218
+ssg74
+I2282
+sg75
+(dp219
+I2277
+S''
+sI2278
+S''
+sI2279
+S'        """'
+p220
+sI2280
+S"        kwargs['dbio'] = kwargs.get('dbio', True)"
+p221
+sI2281
+S'                                    # necessary for SQLHTML forms'
+p222
+sI2282
+S'        self.validate(**kwargs)'
+p223
+sI2283
+S'        return self'
+p224
+sI2284
+S''
+sI2285
+S'    REDIRECT_JS = "window.location=\'%s\';return false"'
+p225
+sI2286
+S''
+ssg87
+S"(self=<gluon.sqlhtml.SQLFORM object>, **kwargs={'dbio': True, 'formname': 'web2py_grid', 'next': '/OuvidoriaUfba/default/db_sigeo_manage/t_db_sige...ignature=bdd5c7e89165e4f733e863c681183b57ac2819b5', 'onfailure': None, 'onsuccess': None, 'onvalidation': None})"
+p226
+sg89
+S'process'
+p227
+sa(dp228
+g66
+S'/home/ricardo/web2py/gluon/html.py'
+p229
+sg68
+(dp230
+S'self'
+p231
+S'<gluon.sqlhtml.SQLFORM object>'
+p232
+sS'self.accepts'
+p233
+S'<bound method SQLFORM.accepts of <gluon.sqlhtml.SQLFORM object>>'
+p234
+sS'kwargs'
+p235
+S"{'dbio': True, 'formname': 'web2py_grid', 'onvalidation': None, 'request_vars': <Storage {'f_assunto': 'qweqwe', 'f_local': 'qwe...rmname': 'web2py_grid', 'f_descricao': 'qweqwe'}>, 'session': <Storage {'last_query': 'db.auth_user.id>0', '_u...gin]': ['aac9c8ba-7cfe-4b44-b880-162f658807ed']}>}"
+p236
+ssg74
+I2219
+sg75
+(dp237
+I2214
+S"        for key in ('message_onsuccess', 'message_onfailure', 'onsuccess',"
+p238
+sI2215
+S"                    'onfailure', 'next', 'message_onchange', 'onchange'):"
+p239
+sI2216
+S'            if key in kwargs:'
+p240
+sI2217
+S'                del kwargs[key]'
+p241
+sI2218
+S''
+sI2219
+S'        if self.accepts(**kwargs):'
+p242
+sI2220
+S"            if onsuccess == 'flash':"
+p243
+sI2221
+S'                if next:'
+p244
+sI2222
+S'                    current.session.flash = message_onsuccess'
+p245
+sI2223
+S'                else:'
+p246
+ssg87
+S"(self=<gluon.sqlhtml.SQLFORM object>, **kwargs={'dbio': True, 'formname': 'web2py_grid', 'onvalidation': None, 'request_vars': <Storage {'f_assunto': 'qweqwe', 'f_local': 'qwe...rmname': 'web2py_grid', 'f_descricao': 'qweqwe'}>, 'session': <Storage {'last_query': 'db.auth_user.id>0', '_u...gin]': ['aac9c8ba-7cfe-4b44-b880-162f658807ed']}>})"
+p247
+sg89
+S'validate'
+p248
+sa(dp249
+g66
+S'/home/ricardo/web2py/gluon/sqlhtml.py'
+p250
+sg68
+(dp251
+S'self.vars.id'
+p252
+S'None'
+p253
+sS'fields'
+p254
+S"{'created_by': <function lazy_user>, 'created_on': datetime.datetime(2014, 7, 21, 19, 54, 28, 849399), 'f_assunto': 'qweqwe', 'f_descricao': 'qweqwe', 'f_foto': '', 'f_local': 'qweqwe', 'f_tipo': 'Patrim\\xc3\\xb4nio danificado', 'is_active': True}"
+p255
+sS'self'
+p256
+S'<gluon.sqlhtml.SQLFORM object>'
+p257
+sS'self.vars'
+p258
+S"<Storage {'f_foto': '', 'f_tipo': 'Patrim\\xc3\\xb...', 'f_local': 'qweqwe', 'f_descricao': 'qweqwe'}>"
+p259
+sS'self.table.insert'
+p260
+S'<bound method Table.insert of <Table t_db_sigeo ...,created_on,created_by,modified_on,modified_by)>>'
+p261
+sS'self.table'
+p262
+S'<Table t_db_sigeo (id,f_tipo,f_assunto,f_local,f...e,created_on,created_by,modified_on,modified_by)>'
+p263
+ssg74
+I1592
+sg75
+(dp264
+I1587
+S'                    self.vars.id = self.record[self.id_field_name]'
+p265
+sI1588
+S'                    if fields:'
+p266
+sI1589
+S'                        self.table._db(self.table._id == self.record['
+p267
+sI1590
+S'                                       self.id_field_name]).update(**fields)'
+p268
+sI1591
+S'                else:'
+p269
+sI1592
+S'                    self.vars.id = self.table.insert(**fields)'
+p270
+sI1593
+S'        self.accepted = ret'
+p271
+sI1594
+S'        return ret'
+p272
+sI1595
+S''
+sI1596
+S'    AUTOTYPES = {'
+p273
+ssg87
+S"(self=<gluon.sqlhtml.SQLFORM object>, request_vars=<Storage {'f_assunto': 'qweqwe', 'f_local': 'qwe...rmname': 'web2py_grid', 'f_descricao': 'qweqwe'}>, session=<Storage {'last_query': 'db.auth_user.id>0', '_u...gin]': ['aac9c8ba-7cfe-4b44-b880-162f658807ed']}>, formname='web2py_grid', keepvalues=False, onvalidation=None, dbio=True, hideerror=False, detect_record_change=False, **kwargs={})"
+p274
+sg89
+S'accepts'
+p275
+sa(dp276
+g66
+S'/home/ricardo/web2py/gluon/dal.py'
+p277
+sg68
+(dp278
+S'self._listify'
+p279
+S'<bound method Table._listify of <Table t_db_sige...,created_on,created_by,modified_on,modified_by)>>'
+p280
+sS'fields'
+p281
+S"{'created_by': <function lazy_user>, 'created_on': datetime.datetime(2014, 7, 21, 19, 54, 28, 849399), 'f_assunto': 'qweqwe', 'f_descricao': 'qweqwe', 'f_foto': '', 'f_local': 'qweqwe', 'f_tipo': 'Patrim\\xc3\\xb4nio danificado', 'is_active': True, 'modified_by': <function lazy_user>, 'modified_on': datetime.datetime(2014, 7, 21, 19, 54, 28, 849399)}"
+p282
+sS'self'
+p283
+S'<Table t_db_sigeo (id,f_tipo,f_assunto,f_local,f...e,created_on,created_by,modified_on,modified_by)>'
+p284
+sS'ret'
+p285
+g108
+sS'self._db._adapter'
+p286
+S'<gluon.dal.SQLiteAdapter object>'
+p287
+sS'self._db._adapter.insert'
+p288
+S'<bound method SQLiteAdapter.insert of <gluon.dal.SQLiteAdapter object>>'
+p289
+sS'self._db'
+p290
+S'<DAL uri="sqlite://storage.sqlite">'
+p291
+ssg74
+I9114
+sg75
+(dp292
+I9109
+S''
+sI9110
+S'    def insert(self, **fields):'
+p293
+sI9111
+S'        fields = self._defaults(fields)'
+p294
+sI9112
+S'        self._attempt_upload(fields)'
+p295
+sI9113
+S'        if any(f(fields) for f in self._before_insert): return 0'
+p296
+sI9114
+S'        ret =  self._db._adapter.insert(self, self._listify(fields))'
+p297
+sI9115
+S'        if ret and self._after_insert:'
+p298
+sI9116
+S'            fields = Row(fields)'
+p299
+sI9117
+S'            [f(fields,ret) for f in self._after_insert]'
+p300
+sI9118
+S'        return ret'
+p301
+ssg87
+S"(self=<Table t_db_sigeo (id,f_tipo,f_assunto,f_local,f...e,created_on,created_by,modified_on,modified_by)>, **fields={'created_by': <function lazy_user>, 'created_on': datetime.datetime(2014, 7, 21, 19, 54, 28, 849399), 'f_assunto': 'qweqwe', 'f_descricao': 'qweqwe', 'f_foto': '', 'f_local': 'qweqwe', 'f_tipo': 'Patrim\\xc3\\xb4nio danificado', 'is_active': True, 'modified_by': <function lazy_user>, 'modified_on': datetime.datetime(2014, 7, 21, 19, 54, 28, 849399)})"
+p302
+sg89
+S'insert'
+p303
+sa(dp304
+g66
+S'/home/ricardo/web2py/gluon/dal.py'
+p305
+sg68
+(dp306
+S'e'
+S"IntegrityError('foreign key constraint failed',)"
+p307
+ssg74
+I1360
+sg75
+(dp308
+I1355
+S'            self.execute(query)'
+p309
+sI1356
+S'        except Exception:'
+p310
+sI1357
+S'            e = sys.exc_info()[1]'
+p311
+sI1358
+S"            if hasattr(table,'_on_insert_error'):"
+p312
+sI1359
+S'                return table._on_insert_error(table,fields,e)'
+p313
+sI1360
+S'            raise e'
+p314
+sI1361
+S"        if hasattr(table, '_primarykey'):"
+p315
+sI1362
+S'            mydict = dict([(k[0].name, k[1]) for k in fields if k[0].name in table._primarykey])'
+p316
+sI1363
+S'            if mydict != {}:'
+p317
+sI1364
+S'                return mydict'
+p318
+ssg87
+S"(self=<gluon.dal.SQLiteAdapter object>, table=<Table t_db_sigeo (id,f_tipo,f_assunto,f_local,f...e,created_on,created_by,modified_on,modified_by)>, fields=[(<gluon.dal.Field object>, 'qweqwe'), (<gluon.dal.Field object>, <function lazy_user>), (<gluon.dal.Field object>, 'qweqwe'), (<gluon.dal.Field object>, 'Patrim\\xc3\\xb4nio danificado'), (<gluon.dal.Field object>, True), (<gluon.dal.Field object>, <function lazy_user>), (<gluon.dal.Field object>, datetime.datetime(2014, 7, 21, 19, 54, 28, 849399)), (<gluon.dal.Field object>, datetime.datetime(2014, 7, 21, 19, 54, 28, 849399)), (<gluon.dal.Field object>, ''), (<gluon.dal.Field object>, 'qweqwe')])"
+p319
+sg89
+g303
+sasS'pyver'
+p320
+S'Python 2.7.3: /usr/bin/python (prefix: /usr)'
+p321
+sS'session'
+p322
+g61
+(S's\x08\n\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">auth</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">expiration</td><td style="vertical-align:top;">:</td><td><div>3600</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">hmac_key</td><td style="vertical-align:top;">:</td><td><div>bd0fe6a0-1d72-4859-80e5-2bad37cdc24c</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">last_visit</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2014, 7, 21, 19, 54, 5, 336548)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remember</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">user</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">email</td><td style="vertical-align:top;">:</td><td><div>jeba@gmail.com</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">first_name</td><td style="vertical-align:top;">:</td><td><div>denovoporra</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">id</td><td style="vertical-align:top;">:</td><td><div>4L</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">last_name</td><td style="vertical-align:top;">:</td><td><div>jebaum</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">registration_id</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">registration_key</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">reset_password_key</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">user_groups</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">4</td><td style="vertical-align:top;">:</td><td><div>user_4</div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">flash</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">last_orderby</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">last_query</td><td style="vertical-align:top;">:</td><td><div>db.auth_user.id&gt;0</div></td></tr></table></div>'
+tRp323
+sS'etype'
+p324
+S"<class 'sqlite3.IntegrityError'>"
+p325
+sS'date'
+p326
+S'Mon Jul 21 19:54:29 2014'
+p327
+sS'response'
+p328
+g61
+(S's\x8a\x1c\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">body</td><td style="vertical-align:top;">:</td><td><div>&lt;cStringIO.StringO object at 0x394aa08&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cookies</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">session_id_ouvidoriaufba</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-73ae8926-3fd9-42a8-944d-dd18b09a60fa<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div>/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">delimiters</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>{{</div></td></tr><tr><td><div>}}</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">files</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">flash</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">generic_patterns</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>*</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">headers</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">X-Powered-By</td><td style="vertical-align:top;">:</td><td><div>web2py</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">menu</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div><table><tr><td><div>In\xc3\xadcio</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/OuvidoriaUfba/default/index</div></td></tr><tr><td><div><table></table></div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Consultar ou Enviar Irregularidade</div></td></tr><tr><td><div>True</div></td></tr><tr><td><div>/OuvidoriaUfba/default/db_sigeo_manage</div></td></tr><tr><td><div><table></table></div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Contate-nos</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/OuvidoriaUfba/default/contact</div></td></tr><tr><td><div><table></table></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">meta</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">author</td><td style="vertical-align:top;">:</td><td><div>CQEN &lt;&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">description</td><td style="vertical-align:top;">:</td><td><div>Sistema geral de ouvidoria da ufba</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">keywords</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">models_to_run</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>^\\w+\\.py$</div></td></tr><tr><td><div>^default/\\w+\\.py$</div></td></tr><tr><td><div>^default/db_sigeo_manage/\\w+\\.py$</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">postprocessing</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_client</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_compression_level</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_expires</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_key</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_data_name</td><td style="vertical-align:top;">:</td><td><div>session_data_ouvidoriaufba</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_file</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;/home/ricardo/web2py/applications/OuvidoriaUfba/sessions/127.0.0.1-73ae8926-3fd9-42a8-944d-dd18b09a60fa&#x27;, mode &#x27;rb+&#x27; at 0x3a99660&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_filename</td><td style="vertical-align:top;">:</td><td><div>/home/ricardo/web2py/applications/OuvidoriaUfba/sessions/127.0.0.1-73ae8926-3fd9-42a8-944d-dd18b09a60fa</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_hash</td><td style="vertical-align:top;">:</td><td><div>f88829c924c5bda242e8248591468c47</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-73ae8926-3fd9-42a8-944d-dd18b09a60fa</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_name</td><td style="vertical-align:top;">:</td><td><div>session_id_ouvidoriaufba</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_locked</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_masterapp</td><td style="vertical-align:top;">:</td><td><div>OuvidoriaUfba</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_new</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_storage_type</td><td style="vertical-align:top;">:</td><td><div>file</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">status</td><td style="vertical-align:top;">:</td><td><div>200</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">subtitle</td><td style="vertical-align:top;">:</td><td><div>Sistema Geral de Ouvidoria da UFBA</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">title</td><td style="vertical-align:top;">:</td><td><div>SiGeO - UFBA</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">view</td><td style="vertical-align:top;">:</td><td><div>default/db_sigeo_manage.html</div></td></tr></table></div>'
+tRp329
+sS'locals'
+p330
+(dp331
+S'fields'
+p332
+S"[(<gluon.dal.Field object>, 'qweqwe'), (<gluon.dal.Field object>, <function lazy_user>), (<gluon.dal.Field object>, 'qweqwe'), (<gluon.dal.Field object>, 'Patrim\\xc3\\xb4nio danificado'), (<gluon.dal.Field object>, True), (<gluon.dal.Field object>, <function lazy_user>), (<gluon.dal.Field object>, datetime.datetime(2014, 7, 21, 19, 54, 28, 849399)), (<gluon.dal.Field object>, datetime.datetime(2014, 7, 21, 19, 54, 28, 849399)), (<gluon.dal.Field object>, ''), (<gluon.dal.Field object>, 'qweqwe')]"
+p333
+sS'self'
+p334
+S'<gluon.dal.SQLiteAdapter object>'
+p335
+sS'e'
+S"IntegrityError('foreign key constraint failed',)"
+p336
+sS'table'
+p337
+S'<Table t_db_sigeo (id,f_tipo,f_assunto,f_local,f...e,created_on,created_by,modified_on,modified_by)>'
+p338
+sS'query'
+p339
+S'"INSERT INTO t_db_sigeo(f_assunto,modified_by,f_l...-21 19:54:28\',\'2014-07-21 19:54:28\',\'\',\'qweqwe\');"'
+p340
+sssS'traceback'
+p341
+S'Traceback (most recent call last):\n  File "/home/ricardo/web2py/gluon/restricted.py", line 220, in restricted\n    exec ccode in environment\n  File "/home/ricardo/web2py/applications/OuvidoriaUfba/controllers/default.py", line 39, in <module>\n  File "/home/ricardo/web2py/gluon/globals.py", line 385, in <lambda>\n    self._caller = lambda f: f()\n  File "/home/ricardo/web2py/gluon/tools.py", line 3287, in f\n    return action(*a, **b)\n  File "/home/ricardo/web2py/applications/OuvidoriaUfba/controllers/default.py", line 35, in db_sigeo_manage\n    form = SQLFORM.smartgrid(db.t_db_sigeo,onupdate=auth.archive, editable=False, deletable=auth.has_membership(\'delete_group\'))\n  File "/home/ricardo/web2py/gluon/sqlhtml.py", line 2800, in smartgrid\n    user_signature=user_signature, **kwargs)\n  File "/home/ricardo/web2py/gluon/sqlhtml.py", line 2073, in grid\n    onsuccess=oncreate)\n  File "/home/ricardo/web2py/gluon/html.py", line 2282, in process\n    self.validate(**kwargs)\n  File "/home/ricardo/web2py/gluon/html.py", line 2219, in validate\n    if self.accepts(**kwargs):\n  File "/home/ricardo/web2py/gluon/sqlhtml.py", line 1592, in accepts\n    self.vars.id = self.table.insert(**fields)\n  File "/home/ricardo/web2py/gluon/dal.py", line 9114, in insert\n    ret =  self._db._adapter.insert(self, self._listify(fields))\n  File "/home/ricardo/web2py/gluon/dal.py", line 1360, in insert\n    raise e\nIntegrityError: foreign key constraint failed\n'
+p342
+s.
