@@ -260,6 +260,7 @@
 'Unable to send email': 'Unable to send email',
 'Update:': 'Atualizar:',
 'Urgencia': 'Urgencia',
+'Urgencia!': 'Urgencia!',
 'Use (...)&(...) for AND, (...)|(...) for OR, and ~(...)  for NOT to build more complex queries.': 'Use (...)&(...) para AND, (...)|(...) para OR, e ~(...)  para NOT para construir consultas mais complexas.',
 'User ID': 'User ID',
 'User Voice': 'User Voice',

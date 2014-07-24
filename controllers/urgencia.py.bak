@@ -1,0 +1,5 @@
+# coding: utf8
+# tente algo como
+def urgencia():
+    response.flash("jeba")
+    return dict()
